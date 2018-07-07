@@ -1,0 +1,46 @@
+GAS LISTING sum.s 			page 1
+
+
+   1              		.file	"sum.c"
+   2              		.text
+   3              		.globl	sum
+   4              		.type	sum, @function
+   5              	sum:
+   6              	.LFB0:
+   7              		.cfi_startproc
+   8 0000 55       		pushq	%rbp
+   9              		.cfi_def_cfa_offset 16
+  10              		.cfi_offset 6, -16
+  11 0001 4889E5   		movq	%rsp, %rbp
+  12              		.cfi_def_cfa_register 6
+  13 0004 897DEC   		movl	%edi, -20(%rbp)
+  14 0007 C745F800 		movl	$0, -8(%rbp)
+  14      000000
+  15 000e C745FC01 		movl	$1, -4(%rbp)
+  15      000000
+  16 0015 EB0A     		jmp	.L2
+  17              	.L3:
+  18 0017 8B45FC   		movl	-4(%rbp), %eax
+  19 001a 0145F8   		addl	%eax, -8(%rbp)
+  20 001d 8345FC01 		addl	$1, -4(%rbp)
+  21              	.L2:
+  22 0021 8B45FC   		movl	-4(%rbp), %eax
+  23 0024 3B45EC   		cmpl	-20(%rbp), %eax
+  24 0027 7EEE     		jle	.L3
+  25 0029 8B45F8   		movl	-8(%rbp), %eax
+  26 002c 5D       		popq	%rbp
+  27              		.cfi_def_cfa 7, 8
+  28 002d C3       		ret
+  29              		.cfi_endproc
+  30              	.LFE0:
+  31              		.size	sum, .-sum
+  32              		.ident	"GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3"
+  33              		.section	.note.GNU-stack,"",@progbits
+GAS LISTING sum.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sum.c
+               sum.s:5      .text:0000000000000000 sum
+
+NO UNDEFINED SYMBOLS
