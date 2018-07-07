@@ -8,7 +8,7 @@ void *thread_func(void *arg)
 
 //	sleep(4);
 
-//	pid_t childpid_fun;
+	pid_t childpid_fun;
 	childpid_fun=fork();
 
 	fprintf(stderr, "pid:%ld, tid:%lx\n", (long)getpid(), (unsigned long)pthread_self());
